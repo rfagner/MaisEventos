@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaisEventos.API", "MaisEventos.API\MaisEventos.API.csproj", "{B8C6AD3B-DA3A-44C9-8527-73855E35791B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8C6AD3B-DA3A-44C9-8527-73855E35791B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8C6AD3B-DA3A-44C9-8527-73855E35791B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8C6AD3B-DA3A-44C9-8527-73855E35791B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8C6AD3B-DA3A-44C9-8527-73855E35791B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {585C9402-234D-4D84-B05D-F326D6202CC7}
+	EndGlobalSection
+EndGlobal

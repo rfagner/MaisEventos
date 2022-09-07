@@ -1,3 +1,4 @@
+using MaisEventos.API.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,9 @@ namespace MaisEventos.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MaisEventos.API", Version = "v1" });
             });
+
+            // Adicionamos as injeções de dependências
+            services.AddTransient<MaisEventosDBContext, MaisEventosDBContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

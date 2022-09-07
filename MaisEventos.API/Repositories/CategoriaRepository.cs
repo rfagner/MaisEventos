@@ -1,4 +1,5 @@
-﻿using MaisEventos.API.Interfaces;
+﻿using MaisEventos.API.Data;
+using MaisEventos.API.Interfaces;
 using MaisEventos.API.Models;
 using System.Collections.Generic;
 
@@ -6,6 +7,13 @@ namespace MaisEventos.API.Repositories
 {
     public class CategoriaRepository : ICategoriaRepository
     {
+        // Injeção de Dependência
+        MaisEventosDBContext ctx;
+        public CategoriaRepository(MaisEventosDBContext _ctx)
+        {
+            ctx = _ctx;
+        }
+
         public void Alterar(Categoria categoria)
         {
             throw new System.NotImplementedException();

@@ -38,7 +38,7 @@ namespace MaisEventos.API.Data
 
             modelBuilder.Entity<Categoria>(entity =>
             {
-                entity.Property(e => e.Categoria1).HasColumnName("Categoria");
+                entity.Property(e => e.NomeCategoria).HasColumnName("Categoria");
             });
 
             modelBuilder.Entity<Evento>(entity =>

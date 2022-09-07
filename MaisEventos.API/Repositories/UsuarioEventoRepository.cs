@@ -31,7 +31,9 @@ namespace MaisEventos.API.Repositories
 
         public UsuarioEvento Inserir(UsuarioEvento usuarioEvento)
         {
-            throw new System.NotImplementedException();
+            ctx.UsuarioEventos.Add(usuarioEvento);
+            ctx.SaveChanges();
+            return usuarioEvento;
         }
 
         public ICollection<UsuarioEvento> ListarTodos()

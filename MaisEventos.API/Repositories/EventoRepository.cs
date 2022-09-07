@@ -31,7 +31,9 @@ namespace MaisEventos.API.Repositories
 
         public Evento Inserir(Evento evento)
         {
-            throw new System.NotImplementedException();
+            ctx.Eventos.Add(evento);
+            ctx.SaveChanges();
+            return evento;
         }
 
         public ICollection<Evento> ListarTodos()

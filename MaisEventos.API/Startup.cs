@@ -1,4 +1,6 @@
 using MaisEventos.API.Data;
+using MaisEventos.API.Interfaces;
+using MaisEventos.API.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,6 +38,10 @@ namespace MaisEventos.API
 
             // Adicionamos as injeções de dependências
             services.AddTransient<MaisEventosDBContext, MaisEventosDBContext>();
+            services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+            services.AddTransient<IEventoRepository, EventoRepository>();
+            services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+            services.AddTransient<IUsuarioEventoRepository, UsuarioEventoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

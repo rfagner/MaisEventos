@@ -31,7 +31,9 @@ namespace MaisEventos.API.Repositories
 
         public Categoria Inserir(Categoria categoria)
         {
-            throw new System.NotImplementedException();
+            ctx.Categorias.Add(categoria);
+            ctx.SaveChanges();
+            return categoria;
         }
 
         public ICollection<Categoria> ListarTodos()

@@ -2,6 +2,7 @@
 using MaisEventos.API.Interfaces;
 using MaisEventos.API.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MaisEventos.API.Repositories
 {
@@ -21,7 +22,7 @@ namespace MaisEventos.API.Repositories
 
         public Categoria BuscarPorId(int id)
         {
-            throw new System.NotImplementedException();
+            return ctx.Categorias.Find(id);
         }
 
         public void Excluir(Categoria categoria)
@@ -38,7 +39,7 @@ namespace MaisEventos.API.Repositories
 
         public ICollection<Categoria> ListarTodos()
         {
-            throw new System.NotImplementedException();
+            return ctx.Categorias.ToList();
         }
     }
 }

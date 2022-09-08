@@ -38,5 +38,55 @@ namespace MaisEventos.API.Controllers
                 });
             }
         }
+
+        /// <summary>
+        /// Lista todas as categorias da aplicação
+        /// </summary>
+        /// <returns>Lista de categorias</returns>
+        [HttpGet]
+        public IActionResult Listar()
+        {
+            try
+            {
+                var retorno = repositorio.ListarTodos();
+                return Ok(retorno);
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    msg = "Falha na conexão",
+                    erro = ex.Message,
+                });
+            }
+        }
+
+        /// <summary>
+        /// Lista todas as categorias da aplicação pelo Id
+        /// </summary>
+        /// <param name="id">Id de categorias</param>
+        /// <returns>Lista de categorias</returns>
+        [HttpGet("{id}")]
+        public IActionResult BuscarCategoriasPorId(int id)
+        {
+            try
+            {
+                var retorno = repositorio.BuscarPorId(id);
+                if(retorno == null)
+                {
+                    return NotFound(new {Message = "Categoria não encontrada"});
+                }
+
+                return Ok(retorno);
+            }
+            catch (System.Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    msg = "Falha na conexão",
+                    erro = ex.Message,
+                });
+            }
+        }
     }
 }

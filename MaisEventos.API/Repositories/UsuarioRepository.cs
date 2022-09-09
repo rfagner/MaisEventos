@@ -1,6 +1,8 @@
 ﻿using MaisEventos.API.Data;
 using MaisEventos.API.Interfaces;
 using MaisEventos.API.Models;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,7 +19,15 @@ namespace MaisEventos.API.Repositories
 
         public void Alterar(Usuario usuario)
         {
-            throw new System.NotImplementedException();
+            ctx.Entry(usuario).State = EntityState.Modified;
+            ctx.SaveChanges();
+        }
+
+        public void AlterarParcialmente(JsonPatchDocument patchUsuario, Usuario usuario)
+        {
+            patchUsuario.ApplyTo(usuario);
+            ctx.Entry(usuario).State = EntityState.Modified;
+            ctx.SaveChanges();
         }
 
         public Usuario BuscarPorId(int id)
@@ -27,7 +37,7 @@ namespace MaisEventos.API.Repositories
 
         public void Excluir(Usuario usuario)
         {
-            throw new System.NotImplementedException();
+            ctx.Usuarios.Remove(usuario);
         }
 
         public Usuario Inserir(Usuario usuario)

@@ -1,6 +1,8 @@
 ﻿using MaisEventos.API.Data;
 using MaisEventos.API.Interfaces;
 using MaisEventos.API.Models;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,7 +19,15 @@ namespace MaisEventos.API.Repositories
 
         public void Alterar(Categoria categoria)
         {
-            throw new System.NotImplementedException();
+            ctx.Entry(categoria).State = EntityState.Modified;
+            ctx.SaveChanges();
+        }
+
+        public void AlterarParcialmente(JsonPatchDocument patchCategoria, Categoria categoria)
+        {
+            patchCategoria.ApplyTo(categoria);
+            ctx.Entry(categoria).State = EntityState.Modified;
+            ctx.SaveChanges();
         }
 
         public Categoria BuscarPorId(int id)
@@ -27,7 +37,7 @@ namespace MaisEventos.API.Repositories
 
         public void Excluir(Categoria categoria)
         {
-            throw new System.NotImplementedException();
+            ctx.Categorias.Remove(categoria);
         }
 
         public Categoria Inserir(Categoria categoria)

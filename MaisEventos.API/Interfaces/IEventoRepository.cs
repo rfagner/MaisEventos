@@ -1,4 +1,5 @@
 ﻿using MaisEventos.API.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using System.Collections.Generic;
 
 namespace MaisEventos.API.Interfaces
@@ -21,5 +22,8 @@ namespace MaisEventos.API.Interfaces
 
         // DELETE
         void Excluir(Evento evento);
+
+        // PUT
+        void AlterarParcialmente(JsonPatchDocument patchEvento, Evento evento);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MaisEventos.API.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -22,5 +23,8 @@ namespace MaisEventos.API.Interfaces
 
         // DELETE
         void Excluir(Usuario usuario);
+
+        // PUT
+        void AlterarParcialmente(JsonPatchDocument patchUsuario, Usuario usuario);
     }
 }

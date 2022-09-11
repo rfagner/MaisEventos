@@ -38,6 +38,7 @@ namespace MaisEventos.API.Repositories
         public void Excluir(Usuario usuario)
         {
             ctx.Usuarios.Remove(usuario);
+            ctx.SaveChanges();
         }
 
         public Usuario Inserir(Usuario usuario)

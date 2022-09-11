@@ -38,6 +38,7 @@ namespace MaisEventos.API.Repositories
         public void Excluir(Categoria categoria)
         {
             ctx.Categorias.Remove(categoria);
+            ctx.SaveChanges();
         }
 
         public Categoria Inserir(Categoria categoria)

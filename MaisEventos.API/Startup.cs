@@ -38,6 +38,7 @@ namespace MaisEventos.API
 
             // Adicionamos as injeções de dependências
             services.AddTransient<MaisEventosDBContext, MaisEventosDBContext>();
+            services.AddTransient<ILoginRepository, LoginRepository>();
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
             services.AddTransient<IEventoRepository, EventoRepository>();
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();

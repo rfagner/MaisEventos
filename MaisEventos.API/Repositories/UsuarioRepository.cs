@@ -19,6 +19,8 @@ namespace MaisEventos.API.Repositories
 
         public void Alterar(Usuario usuario)
         {
+            // Converte a senha original em algoritmo
+            usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
             ctx.Entry(usuario).State = EntityState.Modified;
             ctx.SaveChanges();
         }
@@ -43,6 +45,9 @@ namespace MaisEventos.API.Repositories
 
         public Usuario Inserir(Usuario usuario)
         {
+            // Converte a senha original em algoritmo
+            usuario.Senha = BCrypt.Net.BCrypt.HashPassword(usuario.Senha);
+
             ctx.Usuarios.Add(usuario);
             ctx.SaveChanges();
             return usuario;
